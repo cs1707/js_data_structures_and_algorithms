@@ -1,45 +1,42 @@
-var Stack = require('./Stack');
+var Stack = require('./Stack')
 
 function match(open, close) {
   var map = {
     '{': '}',
     '[': ']',
     '(': ')'
-  };
+  }
 
-  return map[open] === close;
+  return map[open] === close
 }
 
 function parenthesesChecker(symbols) {
   if(!symbols) {
-    return false;
+    return false
   }
 
-  var stack = new Stack();
-  var index;
-  var symbol;
-  var top;
+  var stack = new Stack()
+  var index
+  var symbol
+  var top
 
   for(index = 0; index < symbols.length; index++) {
-    symbol = symbols.charAt(index);
+    symbol = symbols.charAt(index)
 
     if(symbol === '{' || symbol === '[' || symbol === '(') {
-      stack.push(symbol);
+      stack.push(symbol)
     } else if(stack.isEmpty()) {
-      return false;
+      return false
     } else {
-      top = stack.pop();
+      top = stack.pop()
       if(!match(top, symbol)) {
-        return false;
+        return false
       }
     }
 
   }
 
-  return true;
+  return true
 }
 
-module.exports = parenthesesChecker;
-
-console.log(parenthesesChecker('{{([][])}()}'));
-console.log(parenthesesChecker('[{()]'));
+module.exports = parenthesesChecker
