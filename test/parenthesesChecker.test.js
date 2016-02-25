@@ -11,4 +11,8 @@ describe('平衡括号测试', function() {
     expect(parenthesesChecker('[{()]')).to.be.equal(false)
   })
 
+  it('{([][])}(){ 不平衡', function() {
+    expect(parenthesesChecker('{([][])}(){')).to.be.equal(false)
+  })
+
 })
