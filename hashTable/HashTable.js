@@ -17,9 +17,10 @@ function HashTable () {
   }
 
   function loseloseHashCode (key) {
+    var keyS = '' + key
     var hash = 0
-    for (var i = 0; i < key.length; i++) {
-      hash += key.charCodeAt(i)
+    for (var i = 0; i < keyS.length; i++) {
+      hash += keyS.charCodeAt(i)
     }
 
     return hash % 37
